@@ -1,3 +1,21 @@
+<?php 
+session_start();
+if($_POST){
+
+    if( ($_POST['usuario']=="jota") && (   $_POST['contrasenia']=="12345") ){
+    
+            $_SESSION['usuario']="jota";
+
+        header("location:index.php");
+
+    }else {
+        echo "<script> alert('Usuario o contraseña incorrecta'); </script>";
+    }
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -16,22 +34,23 @@
 
             </div>
             <div class="col-md-4">
-                <div class="card text-center">
+            <br/>
+                <div class="card">                    
                     <div class="card-header">
                         Iniciar sesión
                     </div>
                     <div class="card-body">
-
                         <form action="login.php" method="post">
                             Usuario: <input class="form-control" type="text" name="usuario" id="">
                             <br />
-                            Contraseña: <input class="form-control" type="text" name="contrasenia" id="">
+                            Contraseña: <input class="form-control" type="password" name="contrasenia" id="">
                             <br />
 
+                            <div class="text-body-secondary ">
+                                <button class="btn btn-success" type="submit">Entrar al portfolio</button>
+                            </div>
+                            <br />
                         </form>
-                    </div>
-                    <div class="card-footer text-body-secondary">
-                        <button class="btn btn-success" type="submit">Entrar al portfolio</button>
                     </div>
                 </div>
             </div>
